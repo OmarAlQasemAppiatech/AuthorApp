@@ -1,0 +1,36 @@
+<br/><div class="jumbotron- py-3"s>
+  <h1 class="display-4 text-center">Authors Collection</h1>
+</div>
+<div class="row">
+  <div class="col-md-5">
+    <app-author-form></app-author-form>
+  </div>
+  <div class="col-md-7">
+    <h5 class="display-6 text-center">Author Details</h5>
+    <br />
+    <br />
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Author Name</th>
+          <th>Email Address</th>
+          <th>Date of Birth</th>
+          <th>Phone Number</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let author of (service.list)">
+          <td>{{author.name}}</td>
+          <td>{{author.email}}</td>
+          <td>{{author.dateOfBirth}}</td>
+          <td>{{author.phoneNumber}}</td>
+          <td>
+            <i (click)="populateForm(author)" class="far fa-edit fa-lg text-info m-2"></i>
+            <i (click)="onDelete(author.id)" class="far fa-trash-alt fa-lg text-danger ml-2"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
