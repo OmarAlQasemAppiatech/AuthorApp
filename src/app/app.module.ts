@@ -5,19 +5,30 @@ import { AuthorDetailsComponent } from './author-details/author-details.componen
 import { AuthorFormComponent } from './author-details/author-form/author-form.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
+import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookFormComponent } from './book-details/book-form/book-form.component';
+import { PublisherDetailsComponent } from './publisher-details/publisher-details.component';
+import { PublisherFormComponent } from './publisher-details/publisher-form/publisher-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthorDetailsComponent,
-    AuthorFormComponent
+    AuthorFormComponent,
+    BookDetailsComponent,
+    BookFormComponent,
+    PublisherDetailsComponent,
+    PublisherFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

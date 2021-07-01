@@ -1,6 +1,7 @@
 <br/><div class="jumbotron- py-3"s>
   <h1 class="display-4 text-center">Authors Collection</h1>
 </div>
+<hr/>
 <div class="row">
   <div class="col-md-5">
     <app-author-form></app-author-form>
@@ -20,14 +21,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let author of (service.list)">
+        <tr *ngFor="let author of (service.authorsList)">
           <td>{{author.name}}</td>
           <td>{{author.email}}</td>
           <td>{{author.dateOfBirth}}</td>
           <td>{{author.phoneNumber}}</td>
           <td>
-            <i (click)="populateForm(author)" class="far fa-edit fa-lg text-info m-2"></i>
-            <i (click)="onDelete(author.id)" class="far fa-trash-alt fa-lg text-danger ml-2"></i>
+            <i (click)="populateForm(author)" style="cursor: pointer" class=" far fa-edit fa-lg text-info m-2"></i>
+            <i (click)="onDelete(author.id)" style="cursor: pointer" class="far fa-trash-alt fa-lg text-danger ml-2"></i>
           </td>
         </tr>
       </tbody>

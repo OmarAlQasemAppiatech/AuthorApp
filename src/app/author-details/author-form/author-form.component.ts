@@ -15,7 +15,7 @@ export class AuthorFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (this.service.formData.id == 0)
+    if (this.service.authorFormData.id == 0)
       this.insertRecord(form);
     else
       this.updateRecord(form);
@@ -23,8 +23,8 @@ export class AuthorFormComponent implements OnInit {
   insertRecord(form: NgForm) {
     this.service.postAuthor().subscribe(
       res => {
-        this.resetForm(form);
-        this.service.refreshList();
+        this.resetAuthorForm(form);
+        this.service.refreshAuthorsList();
       },
       err => { console.log(err); }
     );
@@ -33,14 +33,14 @@ export class AuthorFormComponent implements OnInit {
   updateRecord(form: NgForm) {
     this.service.putAuthor().subscribe(
       res => {
-        this.resetForm(form);
-        this.service.refreshList();
+        this.resetAuthorForm(form);
+        this.service.refreshAuthorsList();
       },
       err => { console.log(err); }
     );
   }
-  resetForm(form: NgForm) {
+  resetAuthorForm(form: NgForm) {
     form.form.reset();
-    this.service.formData = new AuthorDetails();
+    this.service.authorFormData = new AuthorDetails();
   }
 }

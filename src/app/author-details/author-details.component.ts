@@ -11,16 +11,16 @@ export class AuthorDetailsComponent implements OnInit {
   constructor(public service: AuthorDetailsService) { }
 
   ngOnInit(): void {
-    this.service.refreshList()
+    this.service.refreshAuthorsList()
   }
   populateForm(selectedRecord: AuthorDetails) {
-    this.service.formData = Object.assign({}, selectedRecord);
+    this.service.authorFormData = Object.assign({}, selectedRecord);
   }
   onDelete(id: number) {
     this.service.deleteAuthor(id)
       .subscribe(
           res => {
-            this.service.refreshList();
+            this.service.refreshAuthorsList();
           },
           err => { console.log(err) }
       )
