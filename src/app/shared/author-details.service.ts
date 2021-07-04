@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthorDetails, BookDetails, PublisherDetails } from './author-details.model';
+import { AuthorDetails, AuthorResource, BookDetails, BookResource, PublisherDetails, PublisherResource } from './author-details.model';
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
@@ -20,9 +20,9 @@ export class AuthorDetailsService {
   publisherFormData: PublisherDetails = new PublisherDetails()
 
 
-  booksList: BookDetails[];
-  authorsList: AuthorDetails[];
-  publishersList: PublisherDetails[];
+  booksList: BookResource[];
+  authorsList: AuthorResource[];
+  publishersList: PublisherResource[];
 
 
   //Add New Author
@@ -37,6 +37,11 @@ export class AuthorDetailsService {
   deleteAuthor(id: number) {
     return this.http.delete(`${this.authorURL}/${id}`);
   }
+  // Get Author By Id 
+  getAuthor(id: number) {
+    return this.http.get(`${this.authorURL}/${id}`);
+  }
+
   //Add New Book
   postBook() {
     return this.http.post(this.bookURL, this.bookFormData);
@@ -49,6 +54,11 @@ export class AuthorDetailsService {
   deleteBook(id: number) {
     return this.http.delete(`${this.bookURL}/${id}`);
   }
+  // Get Book By Id 
+  getBook(id: number) {
+    return this.http.get(`${this.bookURL}/${id}`);
+  }
+
   //Add New Publisher
   postPublisher() {
     return this.http.post(this.publisherURL, this.publisherFormData);
@@ -61,21 +71,25 @@ export class AuthorDetailsService {
   deletePublisher(id: number) {
     return this.http.delete(`${this.publisherURL}/${id}`);
   }
+  // Get Publisher By Id 
+  getPublisher(id: number) {
+    return this.http.get(`${this.publisherURL}/${id}`);
+  }
 
 
   refreshAuthorsList() {
     this.http.get(this.authorURL)
       .toPromise()
-      .then(res =>{ this.authorsList = res as AuthorDetails[];});
+      .then(res => { this.authorsList = res as AuthorResource[]; });
   }
   refreshBooksList() {
     this.http.get(this.bookURL)
       .toPromise()
-      .then(res => this.booksList = res as BookDetails[]);
+      .then(res => this.booksList = res as BookResource[]);
   }
   refreshPublishersList() {
     this.http.get(this.publisherURL)
       .toPromise()
-      .then(res =>{ this.publishersList = res as PublisherDetails[];});
+      .then(res => { this.publishersList = res as PublisherResource[]; });
   }
 }

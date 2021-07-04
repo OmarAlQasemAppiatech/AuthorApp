@@ -24,6 +24,7 @@ export class BookFormComponent implements OnInit {
       this.updateRecord(form);
   }
   insertRecord(form: NgForm) {
+    console.log(form)
     this.service.postBook().subscribe(
       res => {
         this.resetBookForm(form);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BookDetails } from '../shared/author-details.model';
+import { BookDetails, BookResource } from '../shared/author-details.model';
 import { AuthorDetailsService } from '../shared/author-details.service';
 
 @Component({
@@ -15,16 +15,16 @@ export class BookDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.service.refreshBooksList()
   }
-  populateForm(selectedRecord: BookDetails) {
+  populateForm(selectedRecord: BookResource) {
     this.service.bookFormData = Object.assign({}, selectedRecord);
   }
   onDelete(id: number) {
     this.service.deleteBook(id)
       .subscribe(
-          res => {
-            this.service.refreshBooksList();
-          },
-          err => { console.log(err) }
+        res => {
+          this.service.refreshBooksList();
+        },
+        err => { console.log(err) }
       )
   }
 }

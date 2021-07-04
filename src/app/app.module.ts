@@ -11,6 +11,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookFormComponent } from './book-details/book-form/book-form.component';
 import { PublisherDetailsComponent } from './publisher-details/publisher-details.component';
 import { PublisherFormComponent } from './publisher-details/publisher-form/publisher-form.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PublisherFormComponent } from './publisher-details/publisher-form/publi
     BookDetailsComponent,
     BookFormComponent,
     PublisherDetailsComponent,
-    PublisherFormComponent
+    PublisherFormComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

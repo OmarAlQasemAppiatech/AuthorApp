@@ -1,38 +1,41 @@
-<br/><div class="jumbotron- py-3"s>
-    <h1 class="display-4 text-center">Publishers Collection</h1>
+<app-navbar></app-navbar>
+<br />
+
+<div class="jumbotron- py-3" s>
+  <h1 class="display-4 text-center">Publishers Collection</h1>
+</div>
+<hr />
+<div class="row">
+  <div class="col-md-5">
+    <app-publisher-form></app-publisher-form>
   </div>
-  <hr/>
-  <div class="row">
-    <div class="col-md-5">
-      <app-publisher-form></app-publisher-form>
-    </div>
-    <div class="col-md-7">
-      <h5 class="display-6 text-center">Publisher Details</h5>
-      <br />
-      <br />
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>Publisher Name</th>
-            <th>Email Address</th>
-            <th>Address</th>
-            <th>Phone Number</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let publisher of (service.publishersList)">
-            <td>{{publisher.name}}</td>
-            <td>{{publisher.email}}</td>
-            <td>{{publisher.address}}</td>
-            <td>{{publisher.phoneNumber}}</td>
-            <td>
-              <i (click)="populateForm(publisher)" style="cursor: pointer" class=" far fa-edit fa-lg text-info m-2"></i>
-              <i (click)="onDelete(publisher.id)" style="cursor: pointer" class="far fa-trash-alt fa-lg text-danger ml-2"></i>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="col-md-7">
+    <h5 class="display-6 text-center">Publisher Details</h5>
+    <br />
+    <br />
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Publisher Name</th>
+          <th>Email Address</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let publisher of (service.publishersList)">
+          <td>{{publisher.name}}</td>
+          <td>{{publisher.email}}</td>
+          <td>{{publisher.address}}</td>
+          <td>{{publisher.phoneNumber}}</td>
+          <td>
+            <i (click)="populateForm(publisher)" style="cursor: pointer" class=" far fa-edit fa-lg text-info m-2"></i>
+            <i (click)="onDelete(publisher.id)" style="cursor: pointer"
+              class="far fa-trash-alt fa-lg text-danger ml-2"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  
+</div>
